@@ -39,6 +39,8 @@ namespace wfa_hobby
         
         private void ajouterButton_Click(object sender, EventArgs e)
         {   Etudiant etudiant = new Etudiant();
+            ManagerEtudiant managerEtudiant = new ManagerEtudiant();
+            int nombreDeLigneAffectees = 0;
             try 
             {
                 if (textBoxSontRemplis())
@@ -46,15 +48,16 @@ namespace wfa_hobby
                     //prendre les valeur
                     etudiant = PrendreLesValeursDesTextBox();
                     //appeler fonction ajout
+                    nombreDeLigneAffectees = managerEtudiant.AjouterEtudiant(etudiant);
                 }
                 else
                 {
                 MessageBox.Show(" Entrez toutes le données ");
                 }
             } 
-            catch(Exception)
+            catch(Exception ex)
             {
-                throw;
+                MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
             } 
         }
     }
