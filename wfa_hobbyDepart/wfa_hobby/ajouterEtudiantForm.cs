@@ -49,6 +49,10 @@ namespace wfa_hobby
                     etudiant = PrendreLesValeursDesTextBox();
                     //appeler fonction ajout
                     nombreDeLigneAffectees = managerEtudiant.AjouterEtudiant(etudiant);
+                    if (nombreDeLigneAffectees >0)
+                    {
+                        MessageBox.Show(" ajout avec succès ");
+                    }
                 }
                 else
                 {
