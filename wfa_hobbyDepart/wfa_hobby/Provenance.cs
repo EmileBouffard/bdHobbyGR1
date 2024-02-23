@@ -8,5 +8,10 @@ namespace wfa_hobby
 {
     internal class Provenance
     {
+        private int no_provenance;
+        private string provenanceDescription;
+
+        public int No_provenance { get => no_provenance; set => no_provenance = value; }
+        public string ProvenanceDescription { get => provenanceDescription; set => provenanceDescription = value; }
     }
 }

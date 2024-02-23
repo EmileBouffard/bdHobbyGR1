@@ -19,7 +19,18 @@ namespace wfa_hobby
 
         private void ajouterEtudiantForm_Load(object sender, EventArgs e)
         {
+            ManagerProvenance managerProvenance = new ManagerProvenance();
+            try
+            {
+                provenanceComboBox.DataSource = managerProvenance.ListerProvenance();
+                provenanceComboBox.DisplayMember = "Name";//nom dans la classe
+                provenanceComboBox.ValueMember = "no_provenance";
+            }
+            catch (Exception ex)
+            {
 
+                MessageBox.Show(ex.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         private Boolean textBoxSontRemplis()
         {
