@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace wfa_hobby
 {
-    internal class ManagerProvenance
+    internal class ManagerProvenance : Manager //hérite de Manager pour avoir le droit d'utilisatio getConnection
     {
         public List<Provenance> ListerProvenance()
 
@@ -18,9 +18,9 @@ namespace wfa_hobby
 
 
 
-                using (var maConexion = new SqlConnection(Properties.Settings.Default.maConectionString))
+                using (var maConexion = GetConnection())
                 {
-                    using (var maCommande = new SqlCommand(" ListerProvenance ", maConexion))
+                    using (var maCommande = new SqlCommand("ListerProvenance", maConexion))
                     {
                         //definir commandetype
                         maCommande.CommandType = System.Data.CommandType.StoredProcedure;
@@ -34,7 +34,7 @@ namespace wfa_hobby
                             {
                                 Provenance provenance = new Provenance();
                                 provenance.No_provenance = (int)monDataReader["no_provenance"];
-                                provenance.ProvenanceDescription = monDataReader["Description"].ToString();
+                                provenance.ProvenanceDescription = monDataReader["Provenance"].ToString();
                                 maList.Add(provenance);
                             }
                         }

@@ -43,7 +43,7 @@ namespace wfa_hobby
             etudiant.Nom = nomTextBox.Text;
             etudiant.Cellulaire = cellulaireTextBox.Text;
             etudiant.Humour = (int)humourNumericUpDown.Value;
-            etudiant.No_provenance = 1; //remplacer plus tard
+            etudiant.No_provenance = (int)provenanceComboBox.SelectedValue;
             return etudiant;
         }
         

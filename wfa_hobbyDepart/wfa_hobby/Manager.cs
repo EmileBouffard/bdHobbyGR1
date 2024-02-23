@@ -10,6 +10,11 @@ namespace wfa_hobby
     internal class Manager
     {
         // protected signifie utilisable que par ses filles, sans new
+        protected SqlConnection GetConnection()
+        {
+            var maConnexion = new SqlConnection(Properties.Settings.Default.maConectionString);
+            return maConnexion;
+        }
         
     }
 }
