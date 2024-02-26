@@ -8,6 +8,7 @@ namespace wfa_hobby
 {
     internal class ManagerEtudiant
     {
+
         private List<SqlParameter> definirParametreAjout (Etudiant etudiant)
         {
             List<SqlParameter> mesParametres = new List<SqlParameter> ();
